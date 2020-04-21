@@ -53,7 +53,12 @@ def register():
         except exc.IntegrityError:
             flag = 1
             return render_template("register.html", flag = flag, message = "Username already exists. Please give another name")
-        # except:
-        #     flag = 2
-        #     return render_template("register.html", flag = flag, message = "something went wrong.Please register again")
+        except:
+             flag = 2
+             return render_template("register.html", flag = flag, message = "something went wrong.Please register again")
+
+@app.route("/admin")
+def admin():
+    all_users = Users.query.order_by(Users.timestamp).all()
+    return render_template("users.html", users = all_users)
 
