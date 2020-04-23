@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block heading %}
+    <br>
     Sign Up
 {% endblock %}
 
@@ -19,7 +20,17 @@
                         <div class="alert alert-success alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
                             <p> {{message}}</p>
-                        </div>                    
+                        </div>
+                    {% elif flag==3 %}
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <p> {{message}}</p>
+                        </div>
+                    {% elif flag==4 %}
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <p> {{message}}</p>
+                        </div>                 
                     {% endif %}
                     <p>Please fill in this form to create an account.</p>
                     <form action="{{ url_for('register') }}" method="POST">
@@ -27,10 +38,10 @@
                             <label for="name"><b>UserName</b></label>
                             <input type="text" class="form-control" name="name" placeholder="Enter Your Name">
                         </div>
-                        <div class = "form-group">
+                        <!--<div class = "form-group">
                             <label for="email"><b>Email</b></label>
                             <input type="email" class="form-control" name="email" placeholder="Enter your email">
-                        </div>
+                        </div>-->
                         <!--<div class = "form-group">
                             <label for="dob"><b>DOB</b></label>
                             <input type="date" class="form-control" name="dob" placeholder="Enter date of birth">
@@ -50,6 +61,7 @@
                             </label>
                         </div>
                         <button type="submit" class="btn btn-info" name = "action" value="register">Register</button>
+                        <button type="submit" class="btn btn-info" name = "action" value="login" formaction="{{ url_for ('authentication') }}">Login</button>
                         <!--<button type="submit" class="btn btn-primary">Login</button>-->
                         <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
                     </form>
