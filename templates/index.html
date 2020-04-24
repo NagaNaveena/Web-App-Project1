@@ -1,9 +1,14 @@
 {% extends "layout.html" %}
 
 {% block heading %}
-
+    Home page
 {% endblock %}
 
 {% block body %}
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <form class="form-inline" action="{{ url_for('logout') }}">
+            <button class="btn btn-success" type="submit">Logout</button>
+        </form>
+    </nav>
     <h3> Hello World. Welcome to my website</h3>
 {% endblock %}
